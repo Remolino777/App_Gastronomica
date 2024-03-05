@@ -57,7 +57,7 @@ if select_categoria:
     
     #_______________________________TITLE HEADER
 
-    st.subheader(f'La {comuna_top} es la que tiene mas "{select_categoria}s"', divider='green')
+    st.header(f'La :green[{comuna_top}] es la que tiene mas "{select_categoria}S"', divider='green')
     
     #_______________________________CHARTS BARS
     col1,col2 = st.columns([1,3])
@@ -76,6 +76,7 @@ if select_categoria:
     
     with col2:           
         
+        st.subheader(f'Relacion de {select_categoria}S por Comuna Vs _{comuna_top}_')
         
         fig2 = make_subplots(rows=5, cols=3,
                     specs=[[{"type": "domain"}] * 3] * 5)
