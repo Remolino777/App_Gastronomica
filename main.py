@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st 
 import plotly.express as px
-import polars as pl
 import folium
 from streamlit_folium import st_folium, folium_static
 from folium.plugins import MarkerCluster
