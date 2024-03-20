@@ -6,6 +6,13 @@ from streamlit_folium import st_folium, folium_static
 from folium.plugins import MarkerCluster
 
 
+#_____________________ Solve Cross-Origin Resource Sharing problem --- borrar
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
 #____________________ Page configuration
 
 
@@ -23,19 +30,19 @@ select_cat = ''
 new_df = []
 
 #_____________________ Source dataset reading.
-csv_file_path = "/app/oferta_gastronomica (2).csv"  ### Dockers container path
+url = r'D:\0_Respaldo\0_Proyectos_2024\App_Gastronomica\oferta_gastronomica (2).csv'
 
 @st.cache_data   #cache the csv file
-def load_data(csv_file_path):
-    df = pd.read_csv(csv_file_path)
+def load_data(url):
+    df = pd.read_csv(url)
     return df
 
-df = load_data(csv_file_path)
+df = load_data(url)
 new_df = ['id', 'nombre', 'categoria', 'direccion_completa', 'barrio', 'comuna', 'long', 'lat']
 
 
 
-load_data(csv_file_path)
+load_data(url)
 #_____________________ New df copy.
 df_1 = df[new_df].copy()
 df_1.rename(columns={'id':'id_local', 'direccion':'direccion_completa'})
@@ -67,7 +74,7 @@ marker_cluster = MarkerCluster().add_to(m)
 #_______________________________SIDE BAR
 with st.sidebar:
     
-    st.image('/app/Baires_Logo.png', use_column_width=True)
+    st.image('Baires_Logo.png', use_column_width=True)
     select_comuna = st.selectbox('COMUNA',df['comuna'].unique(), index=None, placeholder='Select...')
     
     df_filtered1 = df[df['comuna']==select_comuna]
@@ -99,3 +106,18 @@ for i in dff2.index:
             
 st_data = st_folium(m, width=700, height=650)
 st.write('Buenos Aires, Argentina') 
+
+# if select_comuna != '':
+    
+#     fig  = px.pie(df_plot, values='comuna' , names='categoria', hole= 0.3)
+#     st.plotly_chart(fig)      
+#___________
+
+
+       
+
+
+
+
+
+
