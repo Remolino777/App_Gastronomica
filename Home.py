@@ -14,10 +14,9 @@ with col1:
     "---"
 
 with col2:
-    "---"
     st.image('Baires_Logo.png', use_column_width=True)
     st.divider()
-    st.title('Oferta gastronomica 2023 de la ciudad de *Buenos Aires, Argentina*')
+    st.header('Oferta gastronomica 2023 de la ciudad de *Buenos Aires, Argentina*')
     
 with col3:
     "---"
