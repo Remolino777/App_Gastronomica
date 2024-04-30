@@ -17,7 +17,7 @@ colors_1 = ('#b6d4bb' ,'#f5938b', '#f0cdab', '#f1e7c5', '#a6a6a6',
 
 
 #_____________________ Source dataset reading.
-url = "/app/oferta_gastronomica (2).csv"
+url = r'D:\0_Respaldo\0_Proyectos_2024\App_Gastronomica\oferta_gastronomica (2).csv'
 
 
 @st.cache_data   #cache the csv file
@@ -42,7 +42,8 @@ df_3 = df_3.sort_values(by='comuna', ascending=False)
 #_______________________________SIDE BAR
 with st.sidebar:
     
-    st.image('/app/Baires_Logo.png', use_column_width=True)
+    st.image('Baires_Logo.png', use_column_width=True)
+    
     select_comuna = st.selectbox('COMUNA',df['comuna'].unique(), index=None, placeholder='Select...')
     
 

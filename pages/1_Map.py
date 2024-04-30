@@ -5,20 +5,12 @@ import folium
 from streamlit_folium import st_folium, folium_static
 from folium.plugins import MarkerCluster
 
-
-#_____________________ Solve Cross-Origin Resource Sharing problem --- borrar
-from flask import Flask
-from flask_cors import CORS
-
-app = Flask(__name__)
-CORS(app)
-
 #____________________ Page configuration
 
 
 st.set_page_config(
     layout='centered',
-    initial_sidebar_state='auto'
+    initial_sidebar_state='collapsed'
 )
 
 #____________________ Global varibles
@@ -50,7 +42,7 @@ df_1.rename(columns={'id':'id_local', 'direccion':'direccion_completa'})
 dff = df_1[['lat', 'long', 'nombre']].copy()
 
 
-#_______________________ Maps and markers and tabs
+#_______________________ Image
 
 min_lon, max_lon = -58.23, -58.63
 min_lat, max_lat = -34.75, -34.50
@@ -74,7 +66,9 @@ marker_cluster = MarkerCluster().add_to(m)
 #_______________________________SIDE BAR
 with st.sidebar:
     
-    st.image('Baires_Logo.png', use_column_width=True)
+    st.image('Baires_Logo.png', use_column_width=True)    
+    
+    
     select_comuna = st.selectbox('COMUNA',df['comuna'].unique(), index=None, placeholder='Select...')
     
     df_filtered1 = df[df['comuna']==select_comuna]
