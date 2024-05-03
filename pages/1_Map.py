@@ -22,7 +22,8 @@ select_cat = ''
 new_df = []
 
 #_____________________ Source dataset reading.
-url = r'D:\0_Respaldo\0_Proyectos_2024\App_Gastronomica\oferta_gastronomica (2).csv'
+#url = r'D:\0_Respaldo\0_Proyectos_2024\App_Gastronomica\oferta_gastronomica (2).csv'
+url = "https://raw.githubusercontent.com/Remolino777/App_Gastronomica/main/oferta_gastronomica%20(2).csv"
 
 @st.cache_data   #cache the csv file
 def load_data(url):

@@ -23,8 +23,8 @@ select_cat = ''
 new_df = []
 
 #_____________________ Source dataset reading.
-csv_file_path = "/app/oferta_gastronomica (2).csv"  ### Dockers container path
-
+# csv_file_path = "/app/oferta_gastronomica (2).csv"  ### Dockers container path
+csv_file_path = "https://raw.githubusercontent.com/Remolino777/App_Gastronomica/main/oferta_gastronomica%20(2).csv"
 @st.cache_data   #cache the csv file
 def load_data(csv_file_path):
     df = pd.read_csv(csv_file_path)

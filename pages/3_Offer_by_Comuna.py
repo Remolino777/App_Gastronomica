@@ -17,8 +17,8 @@ colors_1 = ('#b6d4bb' ,'#f5938b', '#f0cdab', '#f1e7c5', '#a6a6a6',
 
 
 #_____________________ Source dataset reading.
-url = r'D:\0_Respaldo\0_Proyectos_2024\App_Gastronomica\oferta_gastronomica (2).csv'
-
+#url = r'D:\0_Respaldo\0_Proyectos_2024\App_Gastronomica\oferta_gastronomica (2).csv'
+url = "https://raw.githubusercontent.com/Remolino777/App_Gastronomica/main/oferta_gastronomica%20(2).csv"
 
 @st.cache_data   #cache the csv file
 def load_data(url):
